@@ -2,8 +2,9 @@
 
 apt-get update
 apt-get install -y docker-compose
+apt-get install -y fish
 
-useradd -m -s /bin/bash -U veselin -u 666
+useradd -m -s /usr/bin/fish -U veselin -u 666
 cp -pr /home/vagrant/.ssh /home/veselin/
 cp /home/vagrant/.bashrc /home/veselin/
 cp /home/vagrant/.profile /home/veselin/
