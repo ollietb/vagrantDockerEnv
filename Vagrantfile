@@ -21,6 +21,14 @@ Vagrant.configure("2") do |config|
     config.ssh.username = 'veselin'
   end
 
+  # Mount the code/ folder onto the guest.
+  # It'll be created on the host if it doesn't exist.
+  config.vm.synced_folder "code/", "/home/veselin/code/", 
+    create: true, 
+    owner: "veselin", 
+    group: "veselin",
+    mount_options: ["dmode=775,fmode=775"]
+
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
