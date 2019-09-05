@@ -22,3 +22,11 @@ cp /home/vagrant/.profile /home/veselin/
 cp /home/vagrant/.bash_logout /home/veselin/
 chown -R veselin:veselin /home/veselin
 echo "%veselin ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/veselin 
+
+# Disable the Ubuntu MOTD
+touch /home/veselin/.hushlogin
+
+# Disable the default fish greeting
+mkdir -p /home/veselin/.config/fish/
+echo "set fish_greeting" >> /home/veselin/.config/fish/config.fish
+chown -R 666:666 /home/veselin/.config/
