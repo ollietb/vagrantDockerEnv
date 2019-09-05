@@ -4,3 +4,6 @@
 !.gitignore
 !Vagrantfile
 !bootstrap.sh
+
+!README.md
+!LICENSE
