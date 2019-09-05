@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
   # Set the guest hostname.
   config.vm.hostname = "dev"
 
+  # ssh into the guest as user `veselin`.
   VAGRANT_COMMAND = ARGV[0]
   if VAGRANT_COMMAND == "ssh"
     config.ssh.username = 'veselin'
