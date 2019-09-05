@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
     create: true, 
     owner: "veselin", 
     group: "veselin",
-    mount_options: ["dmode=775,fmode=775"]
+    mount_options: ["uid=666,gid=666,dmode=775,fmode=775"]
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
