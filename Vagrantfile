@@ -29,16 +29,20 @@ Vagrant.configure("2") do |config|
     group: "veselin",
     mount_options: ["uid=666,gid=666,dmode=775,fmode=775"]
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # NOTE: This will enable public access to the opened port
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  # Forward ports.
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine and only allow access
-  # via 127.0.0.1 to disable public access
-  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  config.vm.network "forwarded_port", guest: 8000, host: 8000
+  config.vm.network "forwarded_port", guest: 20000, host: 20000
+  config.vm.network "forwarded_port", guest: 21000, host: 21000
+
+  for i in 8080..8090
+    config.vm.network :forwarded_port, guest: i, host: i
+  end
+
+  for i in 38000..38050
+    config.vm.network :forwarded_port, guest: i, host: i
+  end
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
