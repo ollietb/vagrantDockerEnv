@@ -23,6 +23,9 @@ cp /home/vagrant/.bash_logout /home/veselin/
 chown -R veselin:veselin /home/veselin
 echo "%veselin ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/veselin 
 
+# https://docs.docker.com/install/linux/linux-postinstall/
+usermod -aG docker veselin
+
 # Disable the Ubuntu MOTD
 touch /home/veselin/.hushlogin
 
