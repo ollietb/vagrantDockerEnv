@@ -22,6 +22,19 @@ That's it. :)
 
 See the [Vagrant docs](https://www.vagrantup.com/docs/index.html) for more stuff you can do.
 
+## Notes
+
+### Symlinks
+
+To get symlinks to work on a Windows host, you'll need to follow these steps:
+
+- Open Local Security Policy
+- Go to Local Policies -> User Rights Assignment
+- Open the entry "Create symbolic links" and add your user
+- Reboot
+
+This is necessary because, while Windows supports symlinks, creating them isn't something regular users can do by default (God knows why).
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE)

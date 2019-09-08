@@ -38,6 +38,15 @@ Vagrant.configure("2") do |config|
     config.vm.network :forwarded_port, guest: i, host: i
   end
 
+  # Provider-specific configuration.
+  config.vm.provider :virtualbox do |vm|
+
+    # Hack (?) required to get symlinks to work in VirtualBox shared folders.
+    vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
+    vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/home_vagrant_code_", "1"]
+
+  end
+
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
