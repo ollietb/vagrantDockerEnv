@@ -15,19 +15,13 @@ Vagrant.configure("2") do |config|
   # Set the guest hostname.
   config.vm.hostname = "dev"
 
-  # ssh into the guest as user `veselin`.
-  VAGRANT_COMMAND = ARGV[0]
-  if VAGRANT_COMMAND == "ssh"
-    config.ssh.username = 'veselin'
-  end
-
   # Mount the code/ folder onto the guest.
   # It'll be created on the host if it doesn't exist.
-  config.vm.synced_folder "code/", "/home/veselin/code/", 
+  config.vm.synced_folder "code/", "/home/vagrant/code/", 
     create: true, 
-    owner: "veselin", 
-    group: "veselin",
-    mount_options: ["uid=666,gid=666,dmode=775,fmode=775"]
+    owner: "vagrant", 
+    group: "vagrant",
+    mount_options: ["uid=1000,gid=1000,dmode=775,fmode=775"]
 
   # Forward ports.
 

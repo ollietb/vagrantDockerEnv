@@ -12,6 +12,7 @@ apt-get install -y docker-compose
 
 # Install fish 
 apt-get install -y fish
+chsh -s /usr/bin/fish vagrant
 
 # Install PHP + extensions
 apt-get install -y php7.3
@@ -31,22 +32,14 @@ apt-get install -y yarn
 # Install misc. packages
 apt-get install -y unzip
 
-# Create a `veselin` user and configure all the stuff he needs 
-useradd -m -s /usr/bin/fish -U veselin -u 666
-cp -pr /home/vagrant/.ssh /home/veselin/
-cp /home/vagrant/.bashrc /home/veselin/
-cp /home/vagrant/.profile /home/veselin/
-cp /home/vagrant/.bash_logout /home/veselin/
-chown -R veselin:veselin /home/veselin
-echo "%veselin ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/veselin 
-
 # https://docs.docker.com/install/linux/linux-postinstall/
-usermod -aG docker veselin
+# usermod -aG docker veselin
+usermod -aG docker vagrant
 
 # Disable the Ubuntu MOTD
-touch /home/veselin/.hushlogin
+touch /home/vagrant/.hushlogin
 
 # Disable the default fish greeting
-mkdir -p /home/veselin/.config/fish/
-echo "set fish_greeting" >> /home/veselin/.config/fish/config.fish
-chown -R 666:666 /home/veselin/.config/
+mkdir -p /home/vagrant/.config/fish/
+echo "set fish_greeting" >> /home/vagrant/.config/fish/config.fish
+chown -R vagrant:vagrant /home/vagrant/.config/
