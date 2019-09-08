@@ -20,8 +20,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "code/", "/home/vagrant/code/", 
     create: true, 
     owner: "vagrant", 
-    group: "vagrant",
-    mount_options: ["uid=1000,gid=1000,dmode=775,fmode=775"]
+    group: "vagrant"
 
   # Forward ports.
 
