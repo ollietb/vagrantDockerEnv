@@ -45,6 +45,9 @@ Vagrant.configure("2") do |config|
     vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
     vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/home_vagrant_code_", "1"]
 
+    # The amount of RAM given to the VM (in MB).
+    vm.memory = "4096"
+
   end
 
   # Create a private network, which allows host-only access to the machine
