@@ -21,6 +21,9 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 mv composer.phar /bin/composer
 
+# Install misc. packages
+apt-get install -y unzip
+
 # Create a `veselin` user and configure all the stuff he needs 
 useradd -m -s /usr/bin/fish -U veselin -u 666
 cp -pr /home/vagrant/.ssh /home/veselin/
