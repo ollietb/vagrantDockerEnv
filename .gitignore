@@ -4,6 +4,8 @@
 !.gitignore
 !Vagrantfile
 !bootstrap.sh
+!dev_config
+!dev_config/*
 
 !README.md
 !LICENSE

@@ -43,3 +43,7 @@ touch /home/vagrant/.hushlogin
 mkdir -p /home/vagrant/.config/fish/
 echo "set fish_greeting" >> /home/vagrant/.config/fish/config.fish
 chown -R vagrant:vagrant /home/vagrant/.config/
+
+# .dircolors
+cp /dev_config/.dircolors /home/vagrant/.dircolors
+echo "eval (dircolors -c ~/.dircolors)" >> /home/vagrant/.config/fish/config.fish
