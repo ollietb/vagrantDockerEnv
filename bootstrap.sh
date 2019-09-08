@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 # Add repositories + `apt-get update`
-add-apt-repository ppa:ondrej/php
+add-apt-repository ppa:ondrej/php # PHP
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - # Yarn
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list # Yarn
+curl -sL https://deb.nodesource.com/setup_12.x | bash - # Node
 apt-get update
 
 # Install Docker Compose
@@ -20,6 +23,10 @@ php -r "if (hash_file('sha384', 'composer-setup.php') === 'a5c698ffe4b8e849a443b
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 mv composer.phar /bin/composer
+
+# Install Node and Yarn
+apt-get install -y nodejs
+apt-get install -y yarn
 
 # Install misc. packages
 apt-get install -y unzip
