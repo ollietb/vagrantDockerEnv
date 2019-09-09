@@ -8,7 +8,8 @@ curl -sL https://deb.nodesource.com/setup_12.x | bash - # Node
 apt-get update
 
 # Install Docker Compose
-apt-get install -y docker-compose
+curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
 
 # Install fish 
 apt-get install -y fish
