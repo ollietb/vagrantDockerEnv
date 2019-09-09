@@ -47,3 +47,8 @@ chown -R vagrant:vagrant /home/vagrant/.config/
 # .dircolors
 cp /dev_config/.dircolors /home/vagrant/.dircolors
 echo "eval (dircolors -c ~/.dircolors)" >> /home/vagrant/.config/fish/config.fish
+
+# Install `resolvconf` and add nameservers
+apt-get install -y resolvconf
+echo "nameserver 192.168.110.1" >> /etc/resolvconf/resolv.conf.d/head
+service resolvconf restart
