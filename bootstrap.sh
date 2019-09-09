@@ -34,7 +34,6 @@ apt-get install -y yarn
 apt-get install -y unzip
 
 # https://docs.docker.com/install/linux/linux-postinstall/
-# usermod -aG docker veselin
 usermod -aG docker vagrant
 
 # Disable the Ubuntu MOTD
