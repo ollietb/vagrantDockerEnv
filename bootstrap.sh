@@ -52,3 +52,8 @@ echo "eval (dircolors -c ~/.dircolors)" >> /home/vagrant/.config/fish/config.fis
 apt-get install -y resolvconf
 echo "nameserver 192.168.110.1" >> /etc/resolvconf/resolv.conf.d/head
 service resolvconf restart
+
+# Git config
+su -c "git config --global credential.helper store" vagrant
+su -c "git config --global user.name \"Veselin Romić\"" vagrant
+su -c "git config --global user.email \"veselin.romic@infostud.com\"" vagrant
