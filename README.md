@@ -35,6 +35,10 @@ To get symlinks to work on a Windows host, you'll need to follow these steps:
 
 This is necessary because, while Windows supports symlinks, creating them isn't something regular users can do by default (God knows why).
 
+### Windows Defender
+
+If you're on a Windows host, turning Windows Defender off, or at least whitelisting your `code/` folder, is strongly recommended for performance reasons. [This article](https://www.windowscentral.com/how-permanently-disable-windows-defender-windows-10) describes a few ways you can turn it off permanently.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE)
