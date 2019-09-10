@@ -26,6 +26,9 @@ Vagrant.configure("2") do |config|
   # we need to provision the machine.
   config.vm.synced_folder "dev_config/", "/dev_config/"
 
+  # Mount the Docker certs.d folder.
+  config.vm.synced_folder "docker_certs/", "/etc/docker/certs.d/", create: true
+
   # Forward ports.
 
   config.vm.network "forwarded_port", guest: 3000, host: 3000
