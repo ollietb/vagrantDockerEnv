@@ -20,7 +20,8 @@ vagrant ssh
 
 That's it. :)
 
-To watch the `code/` folder and automatically sync any changes to the guest machine, run:
+To watch the `code/` folder and automatically sync any changes to `~/code` on the guest machine, run:
+
 ```
 vagrant rsync-auto
 ```
@@ -29,7 +30,9 @@ See the [Vagrant docs](https://www.vagrantup.com/docs/index.html) for more stuff
 
 ## Notes
 
-### Symlinks
+This section contains some optional things you may or may not want to do to make your environment work better, particularly if you're on a Windows host.
+
+### Turn Symlinks On
 
 To get symlinks to work on a Windows host, you'll need to follow these steps:
 
@@ -40,7 +43,7 @@ To get symlinks to work on a Windows host, you'll need to follow these steps:
 
 This is necessary because, while Windows supports symlinks, creating them isn't something regular users can do by default (God knows why).
 
-### Windows Defender
+### Disable Windows Defender
 
 If you're on a Windows host, turning Windows Defender off, or at least whitelisting your `code/` folder, is strongly recommended for performance reasons. [This article](https://www.windowscentral.com/how-permanently-disable-windows-defender-windows-10) describes a few ways you can turn it off permanently.
 
