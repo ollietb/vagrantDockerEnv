@@ -20,6 +20,11 @@ vagrant ssh
 
 That's it. :)
 
+To watch the `code/` folder and automatically sync any changes to the guest machine, run:
+```
+vagrant rsync-auto
+```
+
 See the [Vagrant docs](https://www.vagrantup.com/docs/index.html) for more stuff you can do.
 
 ## Notes
