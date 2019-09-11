@@ -64,3 +64,16 @@ service resolvconf restart
 su -c "git config --global credential.helper store" vagrant
 su -c "git config --global user.name \"Veselin Romić\"" vagrant
 su -c "git config --global user.email \"veselin.romic@infostud.com\"" vagrant
+
+# Increase the inotify watcher limit 
+echo "262144" > /proc/sys/fs/inotify/max_user_watches
+
+# Build unison from source
+apt-get install -y build-essential
+apt-get install -y ocaml
+git clone https://github.com/bcpierce00/unison.git /root/unison-build/
+cd /root/unison-build/
+make UISTYLE=text
+cp /root/unison-build/src/unison /bin/unison
+cp /root/unison-build/src/unison-fsmonitor /bin/unison-fsmonitor
+rm -rf /root/unison-build/
