@@ -33,6 +33,10 @@ mv composer.phar /bin/composer
 apt-get install -y nodejs
 apt-get install -y yarn
 
+# Install Symfony CLI
+wget https://get.symfony.com/cli/installer -O - | bash
+mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+
 # Install misc. packages
 apt-get install -y unzip
 
