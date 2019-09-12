@@ -66,7 +66,7 @@ su -c "git config --global user.name \"Veselin Romić\"" vagrant
 su -c "git config --global user.email \"veselin.romic@infostud.com\"" vagrant
 
 # Increase the inotify watcher limit 
-echo "262144" > /proc/sys/fs/inotify/max_user_watches
+echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
 
 # Build unison from source
 apt-get install -y build-essential
@@ -77,3 +77,12 @@ make UISTYLE=text
 cp /root/unison-build/src/unison /bin/unison
 cp /root/unison-build/src/unison-fsmonitor /bin/unison-fsmonitor
 rm -rf /root/unison-build/
+
+# Make ~/code, since unison won't
+mkdir -p /home/vagrant/code/
+chmod -R 777 /home/vagrant/code/
+chown -R vagrant:vagrant /home/vagrant/code/
+
+# Install and enable unison systemd service(s)
+cp /dev_config/unison-code.service /etc/systemd/system/unison-code.service
+systemctl enable unison-code --now

@@ -1,0 +1,14 @@
+[Unit]
+Description=Unison service for /code <-> ~/code
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=vagrant
+ExecStart=/bin/unison /code/ /home/vagrant/code/ -batch -perms 0 -dontchmod -links false -times -force newer -repeat watch
+
+[Install]
+WantedBy=multi-user.target
