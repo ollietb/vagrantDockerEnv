@@ -8,6 +8,7 @@
 !dev_config/*
 !.bin/
 !.bin/*
+!sync.ps1
 
 !README.md
 !LICENSE
