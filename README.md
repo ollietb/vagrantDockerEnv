@@ -20,10 +20,10 @@ vagrant ssh
 
 That's it. :)
 
-To watch the `code/` folder and automatically sync any changes to `~/code` on the guest machine, run:
+This setup uses [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) to automatically sync the `code/` folder to `~/code` on the guest machine. On Windows, a PowerShell script is provided that'll do everything for you. Just run:
 
 ```
-vagrant rsync-auto
+.\sync.ps1
 ```
 
 See the [Vagrant docs](https://www.vagrantup.com/docs/index.html) for more stuff you can do.
