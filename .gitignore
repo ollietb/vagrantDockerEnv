@@ -6,6 +6,8 @@
 !bootstrap.sh
 !dev_config
 !dev_config/*
+!.bin/
+!.bin/*
 
 !README.md
 !LICENSE
