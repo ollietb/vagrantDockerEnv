@@ -68,6 +68,11 @@ su -c "git config --global user.email \"veselin.romic@infostud.com\"" vagrant
 # Increase the inotify watcher limit 
 echo "262144" > /proc/sys/fs/inotify/max_user_watches
 
+# Create ~/code, since unison won't do it for us
+mkdir -p /home/vagrant/code/
+chmod -R 777 /home/vagrant/code/
+chown -R vagrant:vagrant /home/vagrant/code/
+
 # Build unison from source
 apt-get install -y build-essential
 apt-get install -y ocaml
