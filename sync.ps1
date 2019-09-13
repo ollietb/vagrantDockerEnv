@@ -8,7 +8,20 @@ function Write-Sync-Output() {
 
 }
 
-# Ask Vagrant to dump the `ssh_config` if it doesn't exist
+# Create the code/ folder if it doesn't exist.
+
+if (!(Test-Path -PathType Container "$PSScriptRoot\code")) {
+
+    New-Item -ItemType Directory -Force -Path "$PSScriptRoot\code" | Out-Null
+    Write-Sync-Output "code/ folder created."
+
+} else {
+
+    Write-Sync-Output "code/ folder found."
+
+}
+
+# Ask Vagrant to dump the `ssh_config` if it doesn't exist.
 
 if (![System.IO.File]::Exists("$PSScriptRoot\ssh_config")) {
 
