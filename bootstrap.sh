@@ -68,12 +68,20 @@ su -c "git config --global user.email \"veselin.romic@infostud.com\"" vagrant
 # Increase the inotify watcher limit 
 echo "262144" > /proc/sys/fs/inotify/max_user_watches
 
+# Create ~/code, since unison won't do it for us
+mkdir -p /home/vagrant/code/
+chmod -R 777 /home/vagrant/code/
+chown -R vagrant:vagrant /home/vagrant/code/
+
 # Build unison from source
 apt-get install -y build-essential
 apt-get install -y ocaml
-git clone https://github.com/bcpierce00/unison.git /root/unison-build/
+mkdir -p /root/unison-build/
 cd /root/unison-build/
+wget -O source.tar.gz https://github.com/bcpierce00/unison/archive/v2.51.2.tar.gz
+tar xzf source.tar.gz
+cd unison-2.51.2/
 make UISTYLE=text
-cp /root/unison-build/src/unison /bin/unison
-cp /root/unison-build/src/unison-fsmonitor /bin/unison-fsmonitor
+cp /root/unison-build/unison-2.51.2/src/unison /bin/unison
+cp /root/unison-build/unison-2.51.2/src/unison-fsmonitor /bin/unison-fsmonitor
 rm -rf /root/unison-build/

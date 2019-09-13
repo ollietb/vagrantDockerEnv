@@ -15,15 +15,6 @@ Vagrant.configure("2") do |config|
   # Set the guest hostname.
   config.vm.hostname = "dev"
 
-  # Mount the code/ folder onto the guest.
-  # It'll be created on the host if it doesn't exist.
-  config.vm.synced_folder "code/", "/home/vagrant/code/", 
-    create: true, 
-    owner: "vagrant", 
-    group: "vagrant",
-    type: "rsync",
-    rsync__args: ["--verbose", "--archive", "--delete", "-z", "--chmod=D777,F777"]
-
   # Mount the dev_config/ folder we use to store stuff
   # we need to provision the machine.
   config.vm.synced_folder "dev_config/", "/dev_config/"

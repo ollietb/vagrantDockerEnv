@@ -6,6 +6,9 @@
 !bootstrap.sh
 !dev_config
 !dev_config/*
+!.bin/
+!.bin/*
+!sync.ps1
 
 !README.md
 !LICENSE
