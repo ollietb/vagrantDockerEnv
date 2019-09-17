@@ -26,6 +26,8 @@ This setup uses [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) to automat
 .\sync.ps1
 ```
 
+If you're not on Windows, you'll have to install Unison on the host yourself and run the same command(s) the script runs. (Make sure to  match the version of Unison that `bootstrap.sh` installs on the guest machine! Unison is picky about the client and server running the exact same version.)
+
 See the [Vagrant docs](https://www.vagrantup.com/docs/index.html) for more stuff you can do.
 
 ## Notes
