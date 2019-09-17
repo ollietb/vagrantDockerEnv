@@ -66,7 +66,7 @@ su -c "git config --global user.name \"Veselin Romić\"" vagrant
 su -c "git config --global user.email \"veselin.romic@infostud.com\"" vagrant
 
 # Increase the inotify watcher limit 
-echo "262144" > /proc/sys/fs/inotify/max_user_watches
+echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p
 
 # Create ~/code, since unison won't do it for us
 mkdir -p /home/vagrant/code/
