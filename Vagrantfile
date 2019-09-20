@@ -8,12 +8,15 @@ Vagrant.configure("2") do |config|
 
   # Install Docker.
   config.vm.provision "docker"
+  
+  #Name of virtualbox file
+  config.vm.define "vagrantDockerEnv"
 
   # Run the bootstrap script.
   config.vm.provision :shell, path: "bootstrap.sh"
 
   # Set the guest hostname.
-  config.vm.hostname = "dev"
+  config.vm.hostname = "vagrantDockerEnv"
 
   # Mount the dev_config/ folder we use to store stuff
   # we need to provision the machine.
@@ -25,17 +28,17 @@ Vagrant.configure("2") do |config|
   # Forward ports.
 
   config.vm.network "forwarded_port", guest: 3000, host: 3000
-  config.vm.network "forwarded_port", guest: 8000, host: 8000
-  config.vm.network "forwarded_port", guest: 20000, host: 20000
-  config.vm.network "forwarded_port", guest: 21000, host: 21000
+  config.vm.network "forwarded_port", guest: 80, host: 80
+  #config.vm.network "forwarded_port", guest: 20000, host: 20000
+  #config.vm.network "forwarded_port", guest: 21000, host: 21000
 
-  for i in 8080..8090
-    config.vm.network :forwarded_port, guest: i, host: i
-  end
+  #for i in 8080..8090
+  #  config.vm.network :forwarded_port, guest: i, host: i
+  #end
 
-  for i in 38000..38050
-    config.vm.network :forwarded_port, guest: i, host: i
-  end
+  #for i in 38000..38050
+    #config.vm.network :forwarded_port, guest: i, host: i
+  #end
 
   # Provider-specific configuration.
   config.vm.provider :virtualbox do |vm|
@@ -46,6 +49,8 @@ Vagrant.configure("2") do |config|
 
     # The amount of RAM given to the VM (in MB).
     vm.memory = "4096"
+    vm.cpus = "2"
+	vm.name = "vagrantDockerEnv"
 
   end
 end
