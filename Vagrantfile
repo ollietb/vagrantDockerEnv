@@ -24,6 +24,9 @@ Vagrant.configure("2") do |config|
 
   # Mount the Docker certs.d folder.
   config.vm.synced_folder "docker_certs/", "/etc/docker/certs.d/", create: true
+  
+  #Install plugin vagrant-disksize - vagrant plugin install vagrant-disksize
+  config.disksize.size = '15GB'
 
   # Forward ports.
 
@@ -47,10 +50,14 @@ Vagrant.configure("2") do |config|
     vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
     vm.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/home_vagrant_code_", "1"]
 
-    # The amount of RAM given to the VM (in MB).
-    vm.memory = "4096"
+    # The amount of RAM given to the VM (in MB). - 16GB
+    vm.memory = "16384"
     vm.cpus = "2"
 	vm.name = "vagrantDockerEnv"
 
+	#Improve network performance - https://github.com/hashicorp/vagrant/issues/1807
+	vm.customize ["modifyvm", :id, "--nictype4", "virtio"]
+	#vm.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+	#vm.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 end
