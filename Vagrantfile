@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "docker_certs/", "/etc/docker/certs.d/", create: true
   
   #Install plugin vagrant-disksize - vagrant plugin install vagrant-disksize
-  config.disksize.size = '15GB'
+  config.disksize.size = '25GB'
 
   # Forward ports.
 
