@@ -22,6 +22,8 @@ For more [info](https://www.interfacett.com/blogs/enabling-hypervisor-auto-start
 ## Running
 
 ```
+vagrant plugin update
+vagrant plugin install vagrant-disksize
 vagrant up
 vagrant ssh
 ```
